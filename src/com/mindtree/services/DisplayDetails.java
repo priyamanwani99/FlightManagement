@@ -14,6 +14,7 @@ public class DisplayDetails {
 
 	static Scanner sc = new Scanner(System.in);
 	static FlightDAOImpl flightDaoImp = new FlightDAOImpl();
+	static PassengerDAOImpl PassengerDaoImp = new PassengerDAOImpl();
 	public static void displayFlights() {
 		System.out.println("Enter source");
 		String source = sc.next();
@@ -36,7 +37,7 @@ public class DisplayDetails {
 		ArrayList<Flight> flights = flightDaoImp.getFlights(source, destination);
 		if (flights.size() != 0) {
 			for (Flight flight : flights) {
-				ArrayList<Passenger> passengers = PassengerDAOImpl.getPassengers(flight.getFlightName());
+				ArrayList<Passenger> passengers = PassengerDaoImp.getPassengers(flight.getFlightName());
 				System.out.println("================================================");
 				System.out.println("Flight name " + flight.getFlightName());
 				for (Passenger passenger : passengers) {

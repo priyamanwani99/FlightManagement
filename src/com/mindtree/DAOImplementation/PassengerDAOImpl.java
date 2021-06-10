@@ -15,7 +15,7 @@ public class PassengerDAOImpl implements PassengerDAO {
 
 	static Connection connection = null;
 
-	public static void insertPassengers(Passenger passenger) {
+	public void insertPassengers(Passenger passenger) {
 		connection = DBConnection.getDBConnection();
 		PreparedStatement pst = null;
 		String query = "INSERT INTO passenger VALUES(?,?,?,?,?)";
@@ -41,7 +41,7 @@ public class PassengerDAOImpl implements PassengerDAO {
 		}
 	}
 
-	public static ArrayList<Passenger> getPassengers(String flightName) {
+	public  ArrayList<Passenger> getPassengers(String flightName) {
 		Statement statement = null;
 		ResultSet resultSet = null;
 		ArrayList<Passenger> passengers = new ArrayList<>();
@@ -70,5 +70,11 @@ public class PassengerDAOImpl implements PassengerDAO {
 			}
 		}
 		return passengers;
+	}
+
+	@Override
+	public void insertPassenger(Passenger passenger) {
+		// TODO Auto-generated method stub
+		
 	}
 }
